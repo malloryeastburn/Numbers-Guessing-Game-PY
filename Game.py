@@ -12,13 +12,16 @@ lower = input("Enter the lower bound: ")
 while (lower.isdigit() == False):
     print("Please enter a valid integer.\n")
     lower = input("Enter the lower bound: ")
+
 #Receive upper bound input from user
 upper = input("Enter the upper bound: ")
 while (upper.isdigit() == False):
     print("Please enter a valid integer.\n")
     upper = input("Enter the upper bound: ")
+
 lower = int(lower)
 upper = int(upper)
+
 #calculate minimun guesses required to guess the random number
 #This can be achieved by the user by guessing half of the range, repeatedly until the random number is guessed
 minGuess = round(math.log(upper - lower + 1, 2))
@@ -37,6 +40,7 @@ guess = input("Enter guess #" + str(guessCounter) + ": ")
 while (guess.isdigit() == False):
     print("Please enter a valid integer.\n")
     guess = input("Enter guess #" + str(guessCounter) + ": ")
+
 #Loops until guess == random number or until the user is out of chances
 while(int(guess) != ranNum and guessCounter < minGuess):
     #Notify user that their guess was too high
@@ -56,6 +60,7 @@ while(int(guess) != ranNum and guessCounter < minGuess):
     while (guess.isdigit() == False):
         print("Please enter a valid integer.\n")
         guess = input("Enter guess #" + str(guessCounter) + ": ")
+        
 #If guess was correct, display output
 if (guess == ranNum):
     print("\nGreat job! You guessed the number in " + str(guessCounter) + " attempt(s)!")
