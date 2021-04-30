@@ -2,16 +2,23 @@ import random
 import math
 
 #Intro for user
-print("Welcome to the Numbers Guessing Game")
+print("-------------------------------------\n")
+print("Welcome to the Numbers Guessing Game\n")
 print("-------------------------------------\n")
 print("You can decide the guessing range!\n")
 
 #Receive lower bound input from user
-lower = int(input("Enter the lower bound: "))
-
+lower = input("Enter the lower bound: ")
+while (lower.isdigit() == False):
+    print("Please enter a valid integer.")
+    lower = input("Enter the lower bound: ")
 #Receive upper bound input from user
-upper = int(input("Enter the upper bound: "))
-
+upper = input("Enter the upper bound: ")
+while (upper.isdigit() == False):
+    print("Please enter a valid integer.")
+    upper = input("Enter the upper bound: ")
+lower = int(lower)
+upper = int(upper)
 #calculate minimun guesses required to guess the random number
 #This can be achieved by the user by guessing half of the range, repeatedly until the random number is guessed
 minGuess = round(math.log(upper - lower + 1, 2))
