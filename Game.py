@@ -10,12 +10,12 @@ print("You can decide the guessing range!\n")
 #Receive lower bound input from user
 lower = input("Enter the lower bound: ")
 while (lower.isdigit() == False):
-    print("Please enter a valid integer.")
+    print("Please enter a valid integer.\n")
     lower = input("Enter the lower bound: ")
 #Receive upper bound input from user
 upper = input("Enter the upper bound: ")
 while (upper.isdigit() == False):
-    print("Please enter a valid integer.")
+    print("Please enter a valid integer.\n")
     upper = input("Enter the upper bound: ")
 lower = int(lower)
 upper = int(upper)
@@ -33,18 +33,18 @@ ranNum = random.randint(lower, upper)
 print("\nYou have " + str(minGuess) + " chances to guess correctly.\n")
 
 #Receive first guess from user
-guess = int(input("Enter guess #" + str(guessCounter) + ": "))
-
+guess = input("Enter guess #" + str(guessCounter) + ": ")
+while (guess.isdigit() == False):
+    print("Please enter a valid integer.\n")
+    guess = input("Enter guess #" + str(guessCounter) + ": ")
 #Loops until guess == random number or until the user is out of chances
-while(guess != ranNum and guessCounter < minGuess):
+while(int(guess) != ranNum and guessCounter < minGuess):
     #Notify user that their guess was too high
-    if (guess > ranNum):
+    if (int(guess) > ranNum):
         print("Your guess was too high!")
-
     #Notify user tha their guess was too low
-    elif (guess < ranNum):
+    else:
         print("Your guess was too low!")
-
     #Display number of remaining guesses to user
     print("\nYou have " + str(minGuess - guessCounter) + " guesses remaining.")
 
@@ -52,8 +52,10 @@ while(guess != ranNum and guessCounter < minGuess):
     guessCounter += 1
 
     #Receive new guess from user
-    guess = int(input("\nEnter guess #" + str(guessCounter) + ": "))
-
+    guess = input("\nEnter guess #" + str(guessCounter) + ": ")
+    while (guess.isdigit() == False):
+        print("Please enter a valid integer.\n")
+        guess = input("Enter guess #" + str(guessCounter) + ": ")
 #If guess was correct, display output
 if (guess == ranNum):
     print("\nGreat job! You guessed the number in " + str(guessCounter) + " attempt(s)!")
@@ -61,5 +63,3 @@ if (guess == ranNum):
 #If guess was incorrect, display output and show random number
 else:
     print("\nYou ran out of chances! The random number was " + str(ranNum) + ". \n\nBetter luck next time!")
-
-#Do: input validation check for isDigit
